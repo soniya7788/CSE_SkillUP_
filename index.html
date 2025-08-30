@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🔥 CSE SkillUp</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: 'Poppins', sans-serif; background-color: #111827; color: #f3f4f6; }
+
+/* Navbar highlight */
+nav { background: linear-gradient(to right,#6366f1,#f43f5e); }
+.nav-link { transition: all 0.3s; font-weight:600; color:white; }
+.nav-link:hover { color: #facc15; }
+
+/* Talent Fest cards */
+.card-hover:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+
+/* Talent Fest details smaller and neat */
+.talent-info { font-size: 0.85rem; color: #d1d5db; line-height: 1.4rem; text-align:left; margin-top:0.5rem; }
+
+/* Courses section dull/faded for finished courses */
+.course-card.finished { filter: grayscale(70%) opacity(0.7); }
+.course-card.finished img { opacity: 0.6; }
+
+/* Fixed card heights for uniformity */
+.course-card { min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; }
+
+/* Finished button style */
+.finished-btn { background-color: gray; color: #ccc; cursor: not-allowed; font-weight: bold; }
+
+/* Hide details initially */
+.hidden-section { display: none; }
+
+summary { cursor: pointer; font-weight: 600; color: #93c5fd; }
+details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
+
+/* Encouraging quotes/messages */
+.encourage-msg { text-align: center; margin-top: 2rem; font-size: 1rem; color: #facc15; font-style: italic; line-height: 1.6; }
+
+/* Mobile menu styles */
+#mobile-menu button { text-align: left; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="shadow-lg sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="https://i.ibb.co/9PSsQVh/logo-cse-skillup.jpg" alt="Logo" class="h-12 w-12 rounded-full">
+      <h1 class="text-xl font-bold text-white">🔥 CSE SkillUp</h1>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="space-x-6 hidden md:flex font-semibold text-gray-300">
+      <button onclick="showSection('talentfest-section')" class="nav-link">Talent Fest 2025</button>
+      <button onclick="showSection('courses-section')" class="nav-link">Courses</button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden flex items-center">
+      <button id="menu-btn" class="text-white text-2xl focus:outline-none">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden bg-gray-800 p-4 flex flex-col space-y-2 md:hidden">
+    <button onclick="showSection('talentfest-section'); toggleMobileMenu()" class="nav-link">Talent Fest 2025</button>
+    <button onclick="showSection('courses-section'); toggleMobileMenu()" class="nav-link">Courses</button>
+  </div>
+</nav>
+
+<!-- Talent Fest Section -->
+<section id="talentfest-section" class="max-w-7xl mx-auto px-4 py-8 text-center">
+  <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-400 mb-4">🎉 CSE SkillUp Talent Fest 2025 🎉</h2>
+  <p class="text-gray-300 text-lg md:text-xl mb-8">💡 Showcase Your Skills | 🎤 Speak with Confidence | 💻 Compete & Win</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Competition 1 -->
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/portfolio.png" class="mx-auto mb-4">
+      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">💼 Portfolio Showdown</h3>
+      <p class="talent-info mb-2">Showcase your portfolio website to impress recruiters and peers.</p>
+      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
+        <span>Fee: ₹50</span>
+        <span>5th Sept 2025</span>
+      </div>
+      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
+      <button onclick="toggleDesc('desc1')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
+      <div id="desc1" class="hidden-section talent-info">
+        🏆 Prizes & Benefits:<br>
+        ✔️ E-Certificates for all<br>
+        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
+      </div>
+      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
+    </div>
+
+    <!-- Competition 2 -->
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/idea.png" class="mx-auto mb-4">
+      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">💡 Idea Pitch</h3>
+      <p class="talent-info mb-2">Present your innovative startup idea with live Q/A session to engage the audience.</p>
+      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
+        <span>Fee: ₹50</span>
+        <span>5th Sept 2025</span>
+      </div>
+      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
+      <button onclick="toggleDesc('desc2')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
+      <div id="desc2" class="hidden-section talent-info">
+        🏆 Prizes & Benefits:<br>
+        ✔️ E-Certificates for all<br>
+        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
+      </div>
+      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
+    </div>
+
+    <!-- Competition 3 -->
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/group.png" class="mx-auto mb-4">
+      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">🎤 Group Discussion (GD)</h3>
+      <p class="talent-info mb-2">Express your views confidently on trending topics and get recognized.</p>
+      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
+        <span>Fee: ₹50</span>
+        <span>5th Sept 2025</span>
+      </div>
+      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
+      <button onclick="toggleDesc('desc3')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
+      <div id="desc3" class="hidden-section talent-info">
+        🏆 Prizes & Benefits:<br>
+        ✔️ E-Certificates for all<br>
+        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
+      </div>
+      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
+    </div>
+
+  </div>
+
+  <!-- Encouraging Quotes -->
+  <div class="encourage-msg">
+    <p>“The only way to achieve success is to participate and challenge yourself.”</p>
+    <p>“Don’t wait for opportunity. Create it by stepping into the spotlight!”</p>
+    <p>“Your next skill, your next win, starts here – join the fest today!”</p>
+  </div>
+</section>
+
+<!-- Courses Section (Finished Courses) -->
+<section id="courses-section" class="max-w-7xl mx-auto px-4 py-8 hidden">
+  <h2 class="text-3xl font-bold text-blue-400 mb-6 text-center">📘 Past Courses</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- ... your courses remain unchanged ... -->
+  </div>
+</section>
+
+<!-- WhatsApp Button -->
+<a href="https://chat.whatsapp.com/LTlyAp76kmV94rkMgtyCNp" target="_blank" class="fixed bottom-5 right-5 bg-green-600 text-white px-5 py-3 rounded-full font-bold shadow-lg z-50">Join WhatsApp Group</a>
+
+<script>
+// Toggle Details Sections
+function toggleDesc(id) { document.getElementById(id).classList.toggle('hidden-section'); }
+
+// Show Section
+function showSection(id) {
+  document.getElementById('talentfest-section').classList.add('hidden');
+  document.getElementById('courses-section').classList.add('hidden');
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// Mobile Menu Toggle
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+function toggleMobileMenu() { mobileMenu.classList.add('hidden'); }
+</script>
+
+</body>
+</html>
