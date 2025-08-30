@@ -18,7 +18,7 @@ nav { background: linear-gradient(to right,#6366f1,#f43f5e); }
 .card-hover:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
 
 /* Talent Fest details smaller and neat */
-.talent-info { font-size: 0.85rem; color: #d1d5db; line-height: 1.4rem; text-align:left; margin-top:0.5rem; }
+.talent-info { font-size: 0.8rem; color: #d1d5db; line-height: 1.4rem; text-align:left; margin-top:0.5rem; }
 
 /* Courses section dull/faded for finished courses */
 .course-card.finished { filter: grayscale(70%) opacity(0.7); }
@@ -30,17 +30,17 @@ nav { background: linear-gradient(to right,#6366f1,#f43f5e); }
 /* Finished button style */
 .finished-btn { background-color: gray; color: #ccc; cursor: not-allowed; font-weight: bold; }
 
-/* Hide details initially */
+/* Details hidden initially */
 .hidden-section { display: none; }
 
 summary { cursor: pointer; font-weight: 600; color: #93c5fd; }
 details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
 
 /* Encouraging quotes/messages */
-.encourage-msg { text-align: center; margin-top: 2rem; font-size: 1rem; color: #facc15; font-style: italic; line-height: 1.6; }
+.encourage-msg { text-align: center; margin-top: 2rem; font-size: 0.95rem; color: #facc15; font-style: italic; line-height: 1.6; }
 
-/* Mobile menu styles */
-#mobile-menu button { text-align: left; }
+/* Mobile menu */
+#mobile-menu button { width: 100%; text-align: left; }
 </style>
 </head>
 <body>
@@ -52,20 +52,17 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
       <img src="https://i.ibb.co/9PSsQVh/logo-cse-skillup.jpg" alt="Logo" class="h-12 w-12 rounded-full">
       <h1 class="text-xl font-bold text-white">🔥 CSE SkillUp</h1>
     </div>
-
-    <!-- Desktop Menu -->
+    <!-- Desktop menu -->
     <div class="space-x-6 hidden md:flex font-semibold text-gray-300">
       <button onclick="showSection('talentfest-section')" class="nav-link">Talent Fest 2025</button>
       <button onclick="showSection('courses-section')" class="nav-link">Courses</button>
     </div>
-
-    <!-- Mobile Menu Button -->
+    <!-- Mobile menu button -->
     <div class="md:hidden flex items-center">
-      <button id="menu-btn" class="text-white text-2xl focus:outline-none">☰</button>
+      <button id="menu-btn" class="text-white focus:outline-none text-2xl">☰</button>
     </div>
   </div>
-
-  <!-- Mobile Menu -->
+  <!-- Mobile menu links -->
   <div id="mobile-menu" class="hidden bg-gray-800 p-4 flex flex-col space-y-2 md:hidden">
     <button onclick="showSection('talentfest-section'); toggleMobileMenu()" class="nav-link">Talent Fest 2025</button>
     <button onclick="showSection('courses-section'); toggleMobileMenu()" class="nav-link">Courses</button>
@@ -147,9 +144,83 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
 
 <!-- Courses Section (Finished Courses) -->
 <section id="courses-section" class="max-w-7xl mx-auto px-4 py-8 hidden">
-  <h2 class="text-3xl font-bold text-blue-400 mb-6 text-center">📘 Past Courses</h2>
+  <h2 class="text-2xl font-bold text-blue-400 mb-6 text-center">📘 Past Courses</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- ... your courses remain unchanged ... -->
+
+    <!-- Course 1 -->
+    <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
+      <img src="https://www.webfries.com/wp-content/uploads/2020/06/static-vs-dynamic-website.jpg" alt="Static to Dynamic" class="rounded-lg h-48 w-full object-cover mb-4">
+      <h2 class="text-lg font-semibold mb-1">From Static to Dynamic</h2>
+      <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
+      <details>
+        <summary>Syllabus</summary>
+        <ul class="list-disc list-inside text-gray-300 text-sm">
+          <li>What’s Beyond HTML/CSS?</li>
+          <li>Backend Basics</li>
+          <li>Databases Demystified</li>
+          <li>Tools Developers Use</li>
+          <li>Connecting Frontend to Backend</li>
+          <li>Form Handling, Data Storage, and Validation</li>
+          <li>Live Project</li>
+        </ul>
+      </details>
+      <div class="mt-6">
+        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
+      </div>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
+      <img src="https://staticlearn.shine.com/l/m/images/blog/mobile/cv_template.webp" alt="Resume & Portfolio" class="rounded-lg h-48 w-full object-cover mb-4">
+      <h2 class="text-lg font-semibold mb-1">Resume & Portfolio Building</h2>
+      <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
+      <details>
+        <summary>Syllabus</summary>
+        <ul class="list-disc list-inside text-gray-300 text-sm">
+          <li>What HRs Look For in Freshers' Resumes</li>
+          <li>The 6-Section Resume Formula</li>
+          <li>ATS-Friendly Design</li>
+          <li>Tools: Canva, Overleaf, Novoresume</li>
+          <li>Real Project Descriptions</li>
+          <li>Common Freshers' Mistakes</li>
+          <li>Digital Portfolio Website</li>
+        </ul>
+      </details>
+      <div class="mt-6">
+        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
+      </div>
+    </div>
+
+    <!-- Course 3 -->
+    <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
+      <img src="https://it.uic.edu/wp-content/uploads/sites/360/2021/01/LinkedIn-news.jpg" alt="Digital Social Life" class="rounded-lg h-48 w-full object-cover mb-4">
+      <h2 class="text-lg font-semibold mb-1">Build Your Digital Social Life</h2>
+      <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
+      <details>
+        <summary>Syllabus</summary>
+        <ul class="list-disc list-inside text-gray-300 text-sm">
+          <li>LinkedIn for Beginners: Profile, Bio, Internships</li>
+          <li>GitHub: Projects & Open-source</li>
+          <li>LeetCode: Practice, Ranking, Resume impact</li>
+        </ul>
+      </details>
+      <div class="mt-6">
+        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Course Outcomes Section -->
+  <div class="mt-10 px-4 md:px-12">
+    <h2 class="text-xl font-semibold text-center text-blue-300 mb-4">Course Outcomes</h2>
+    <div class="bg-gray-900 p-4 rounded-xl text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
+      <p>✅ Build full working websites with backend integration</p>
+      <p>✅ Design a professional resume & portfolio to impress recruiters</p>
+      <p>✅ Master LinkedIn, GitHub, and LeetCode for professional presence</p>
+      <p>✅ Apply classroom learning in live projects and real-world tools</p>
+      <p>✅ Gain confidence for internships and tech job interviews</p>
+    </div>
   </div>
 </section>
 
@@ -157,10 +228,10 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
 <a href="https://chat.whatsapp.com/LTlyAp76kmV94rkMgtyCNp" target="_blank" class="fixed bottom-5 right-5 bg-green-600 text-white px-5 py-3 rounded-full font-bold shadow-lg z-50">Join WhatsApp Group</a>
 
 <script>
-// Toggle Details Sections
+// Toggle details
 function toggleDesc(id) { document.getElementById(id).classList.toggle('hidden-section'); }
 
-// Show Section
+// Show sections
 function showSection(id) {
   document.getElementById('talentfest-section').classList.add('hidden');
   document.getElementById('courses-section').classList.add('hidden');
@@ -168,12 +239,11 @@ function showSection(id) {
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-// Mobile Menu Toggle
+// Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 function toggleMobileMenu() { mobileMenu.classList.add('hidden'); }
 </script>
-
 </body>
 </html>
