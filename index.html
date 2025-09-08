@@ -6,41 +6,47 @@
 <title>🔥 CSE SkillUp</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
 body { font-family: 'Poppins', sans-serif; background-color: #111827; color: #f3f4f6; }
 
-/* Navbar highlight */
+/* Navbar */
 nav { background: linear-gradient(to right,#6366f1,#f43f5e); }
 .nav-link { transition: all 0.3s; font-weight:600; color:white; }
 .nav-link:hover { color: #facc15; }
 
-/* Talent Fest cards */
+/* Hover cards */
 .card-hover:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
 
-/* Talent Fest details smaller and neat */
+/* Talent Fest Info */
 .talent-info { font-size: 0.8rem; color: #d1d5db; line-height: 1.4rem; text-align:left; margin-top:0.5rem; }
 
-/* Courses section dull/faded for finished courses */
-.course-card.finished { filter: grayscale(70%) opacity(0.7); }
-.course-card.finished img { opacity: 0.6; }
-
-/* Fixed card heights for uniformity */
-.course-card { min-height: 550px; display: flex; flex-direction: column; justify-content: space-between; }
-
-/* Finished button style */
+/* Finished Competitions */
 .finished-btn { background-color: gray; color: #ccc; cursor: not-allowed; font-weight: bold; }
 
-/* Details hidden initially */
+/* Section toggle */
 .hidden-section { display: none; }
 
+/* Details */
 summary { cursor: pointer; font-weight: 600; color: #93c5fd; }
 details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
 
-/* Encouraging quotes/messages */
+/* Encouragement */
 .encourage-msg { text-align: center; margin-top: 2rem; font-size: 0.95rem; color: #facc15; font-style: italic; line-height: 1.6; }
 
-/* Mobile menu */
+/* Mobile Menu */
 #mobile-menu button { width: 100%; text-align: left; }
+
+/* Winner Section */
+.winner-box { background:#1f2937; border:2px solid #facc15; padding:1rem; border-radius:1rem; margin:1rem auto; max-width:900px; text-align:center; }
+.winner-title { font-size:1.5rem; font-weight:bold; color:#facc15; margin-bottom:1rem; }
+.winner-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+.winner-item { background:#111827; border-radius:0.8rem; padding:1rem; }
+.winner-item h3 { font-size:1.2rem; color:#60a5fa; font-weight:600; }
+.winner-img { width:100%; height:220px; object-fit:cover; border-radius:0.8rem; margin-bottom:0.5rem; }
+@media(min-width:768px) {
+  .winner-grid { grid-template-columns: repeat(3, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -52,200 +58,161 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
       <img src="https://i.ibb.co/9PSsQVh/logo-cse-skillup.jpg" alt="Logo" class="h-12 w-12 rounded-full">
       <h1 class="text-xl font-bold text-white">🔥 CSE SkillUp</h1>
     </div>
-    <!-- Desktop menu -->
+    <!-- Desktop -->
     <div class="space-x-6 hidden md:flex font-semibold text-gray-300">
       <button onclick="showSection('talentfest-section')" class="nav-link">Talent Fest 2025</button>
       <button onclick="showSection('courses-section')" class="nav-link">Courses</button>
     </div>
-    <!-- Mobile menu button -->
+    <!-- Mobile -->
     <div class="md:hidden flex items-center">
       <button id="menu-btn" class="text-white focus:outline-none text-2xl">☰</button>
     </div>
   </div>
-  <!-- Mobile menu links -->
+  <!-- Mobile links -->
   <div id="mobile-menu" class="hidden bg-gray-800 p-4 flex flex-col space-y-2 md:hidden">
     <button onclick="showSection('talentfest-section'); toggleMobileMenu()" class="nav-link">Talent Fest 2025</button>
     <button onclick="showSection('courses-section'); toggleMobileMenu()" class="nav-link">Courses</button>
   </div>
 </nav>
 
-<!-- Talent Fest Section -->
+<!-- Talent Fest -->
 <section id="talentfest-section" class="max-w-7xl mx-auto px-4 py-8 text-center">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-400 mb-4">🎉 CSE SkillUp Talent Fest 2025 🎉</h2>
-  <p class="text-gray-300 text-lg md:text-xl mb-8">💡 Showcase Your Skills | 🎤 Speak with Confidence | 💻 Compete & Win</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Competition 1 -->
-    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
-      <img src="https://img.icons8.com/color/96/portfolio.png" class="mx-auto mb-4">
-      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">💼 Portfolio Showdown</h3>
-      <p class="talent-info mb-2">Showcase your portfolio website.</p>
-      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
-        <span>Fee: ₹50</span>
-        <span>7th Sept 2025</span>
+  <!-- Winners -->
+  <div class="winner-box">
+    <h2 class="winner-title">🌟 CSE SkillUP Talent Fest 2025 – Winners 🌟</h2>
+    <div class="winner-grid">
+      <!-- Winner 1 -->
+      <div class="winner-item">
+        <img src="https://via.placeholder.com/300x220.png?text=Winner+1" alt="Winner 1" class="winner-img">
+        <h3>💼 Portfolio Showdown</h3>
+        <p>🥇 <b>Dnyaneshwari Chandrakant Shinde</b> 🎉<br>
+        ✨ Creative, well-structured, and professional portfolio!</p>
       </div>
-      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
-      <button onclick="toggleDesc('desc1')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
-      <div id="desc1" class="hidden-section talent-info">
-        🏆 Prizes & Benefits:<br>
-        ✔️ E-Certificates for all<br>
-        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
+      <!-- Winner 2 -->
+      <div class="winner-item">
+        <img src="https://via.placeholder.com/300x220.png?text=Winner+2" alt="Winner 2" class="winner-img">
+        <h3>💡 Idea Pitch</h3>
+        <p>🥇 <b>Arsheen Ismail Sayyed</b> 🚀<br>
+        🌟 Innovative startup idea with impactful presentation!</p>
       </div>
-      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
+      <!-- Winner 3 -->
+      <div class="winner-item">
+        <img src="https://via.placeholder.com/300x220.png?text=Winner+3" alt="Winner 3" class="winner-img">
+        <h3>🎤 Group Discussion (GD)</h3>
+        <p>🥇 <b>Kokare Samruddhi Sanghratna</b> 🎙<br>
+        🔥 Strong communication and confident arguments!</p>
+      </div>
     </div>
-
-    <!-- Competition 2 -->
-    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
-      <img src="https://img.icons8.com/color/96/idea.png" class="mx-auto mb-4">
-      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">💡 Idea Pitch</h3>
-      <p class="talent-info mb-2">Present your innovative startup idea with live Q/A</p>
-      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
-        <span>Fee: ₹50</span>
-        <span>7th Sept 2025</span>
-      </div>
-      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
-      <button onclick="toggleDesc('desc2')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
-      <div id="desc2" class="hidden-section talent-info">
-        🏆 Prizes & Benefits:<br>
-        ✔️ E-Certificates for all<br>
-        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
-      </div>
-      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
-    </div>
-
-    <!-- Competition 3 -->
-    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
-      <img src="https://img.icons8.com/color/96/group.png" class="mx-auto mb-4">
-      <h3 class="text-xl md:text-2xl font-extrabold text-indigo-400 mb-2">🎤 Group Discussion (GD)</h3>
-      <p class="talent-info mb-2">Express your views confidently on trending topics and get recognized.</p>
-      <div class="flex justify-between mb-2 font-bold text-yellow-400 talent-info">
-        <span>Fee: ₹50</span>
-        <span>7th Sept 2025</span>
-      </div>
-      <div class="text-green-500 font-bold mb-2 talent-info">Mode: Online (Google Meet)</div>
-      <button onclick="toggleDesc('desc3')" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full mb-2">Details</button>
-      <div id="desc3" class="hidden-section talent-info">
-        🏆 Prizes & Benefits:<br>
-        ✔️ E-Certificates for all<br>
-        ✔️ Top 2 Winners = Free Entry to 2 SkillUp Programs<br>
-      </div>
-      <a href="https://forms.gle/qJzZcvfPea38tYjA6" target="_blank" class="block mt-4 bg-green-500 hover:bg-green-400 text-black font-bold px-4 py-2 rounded-full">Register</a>
-    </div>
-
+    <p class="mt-3 text-yellow-400">👏 Congratulations to all winners for their talent and confidence! 🌈</p>
   </div>
 
-  <!-- Encouraging Quotes -->
+  <!-- Competitions -->
+  <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-400 mt-8 mb-4">📢 Past Competitions</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/portfolio.png" class="mx-auto mb-4">
+      <h3 class="text-xl font-extrabold text-indigo-400 mb-2">💼 Portfolio Showdown</h3>
+      <p class="talent-info mb-2">Showcase your portfolio website to impress recruiters.</p>
+      <button class="finished-btn w-full px-4 py-2 rounded-full mt-3">Finished</button>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/idea.png" class="mx-auto mb-4">
+      <h3 class="text-xl font-extrabold text-indigo-400 mb-2">💡 Idea Pitch</h3>
+      <p class="talent-info mb-2">Present your innovative startup idea with live Q/A session.</p>
+      <button class="finished-btn w-full px-4 py-2 rounded-full mt-3">Finished</button>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-2xl shadow-lg card-hover">
+      <img src="https://img.icons8.com/color/96/group.png" class="mx-auto mb-4">
+      <h3 class="text-xl font-extrabold text-indigo-400 mb-2">🎤 Group Discussion (GD)</h3>
+      <p class="talent-info mb-2">Express your views confidently on trending topics.</p>
+      <button class="finished-btn w-full px-4 py-2 rounded-full mt-3">Finished</button>
+    </div>
+  </div>
+
+  <!-- Quotes -->
   <div class="encourage-msg">
     <p>“The only way to achieve success is to participate and challenge yourself.”</p>
     <p>“Don’t wait for opportunity. Create it by stepping into the spotlight!”</p>
-    <p>“Your next skill, your next win, starts here – join the fest today!”</p>
   </div>
 </section>
 
-<!-- Courses Section (Finished Courses) -->
+<!-- Courses -->
 <section id="courses-section" class="max-w-7xl mx-auto px-4 py-8 hidden">
   <h2 class="text-2xl font-bold text-blue-400 mb-6 text-center">📘 Past Courses</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
     <!-- Course 1 -->
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://www.webfries.com/wp-content/uploads/2020/06/static-vs-dynamic-website.jpg" alt="Static to Dynamic" class="rounded-lg h-48 w-full object-cover mb-4">
+      <img src="https://www.webfries.com/wp-content/uploads/2020/06/static-vs-dynamic-website.jpg" class="rounded-lg h-48 w-full object-cover mb-4">
       <h2 class="text-lg font-semibold mb-1">From Static to Dynamic</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
-      <details>
-        <summary>Syllabus</summary>
+      <details><summary>Syllabus</summary>
         <ul class="list-disc list-inside text-gray-300 text-sm">
-          <li>What’s Beyond HTML/CSS?</li>
-          <li>Backend Basics</li>
-          <li>Databases Demystified</li>
-          <li>Tools Developers Use</li>
-          <li>Connecting Frontend to Backend</li>
-          <li>Form Handling, Data Storage, and Validation</li>
-          <li>Live Project</li>
+          <li>What’s Beyond HTML/CSS?</li><li>Backend Basics</li><li>Databases Demystified</li><li>Tools Developers Use</li><li>Connecting Frontend to Backend</li><li>Form Handling, Data Storage, and Validation</li><li>Live Project</li>
         </ul>
       </details>
-      <div class="mt-6">
-        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
-      </div>
+      <div class="mt-6"><button class="finished-btn block w-full px-4 py-2 rounded-full">Finished</button></div>
     </div>
 
     <!-- Course 2 -->
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://staticlearn.shine.com/l/m/images/blog/mobile/cv_template.webp" alt="Resume & Portfolio" class="rounded-lg h-48 w-full object-cover mb-4">
+      <img src="https://staticlearn.shine.com/l/m/images/blog/mobile/cv_template.webp" class="rounded-lg h-48 w-full object-cover mb-4">
       <h2 class="text-lg font-semibold mb-1">Resume & Portfolio Building</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
-      <details>
-        <summary>Syllabus</summary>
+      <details><summary>Syllabus</summary>
         <ul class="list-disc list-inside text-gray-300 text-sm">
-          <li>What HRs Look For in Freshers' Resumes</li>
-          <li>The 6-Section Resume Formula</li>
-          <li>ATS-Friendly Design</li>
-          <li>Tools: Canva, Overleaf, Novoresume</li>
-          <li>Real Project Descriptions</li>
-          <li>Common Freshers' Mistakes</li>
-          <li>Digital Portfolio Website</li>
+          <li>What HRs Look For</li><li>The 6-Section Resume Formula</li><li>ATS-Friendly Design</li><li>Tools: Canva, Overleaf</li><li>Project Descriptions</li><li>Common Mistakes</li><li>Digital Portfolio Website</li>
         </ul>
       </details>
-      <div class="mt-6">
-        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
-      </div>
+      <div class="mt-6"><button class="finished-btn block w-full px-4 py-2 rounded-full">Finished</button></div>
     </div>
 
     <!-- Course 3 -->
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://it.uic.edu/wp-content/uploads/sites/360/2021/01/LinkedIn-news.jpg" alt="Digital Social Life" class="rounded-lg h-48 w-full object-cover mb-4">
+      <img src="https://it.uic.edu/wp-content/uploads/sites/360/2021/01/LinkedIn-news.jpg" class="rounded-lg h-48 w-full object-cover mb-4">
       <h2 class="text-lg font-semibold mb-1">Build Your Digital Social Life</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
-      <details>
-        <summary>Syllabus</summary>
+      <details><summary>Syllabus</summary>
         <ul class="list-disc list-inside text-gray-300 text-sm">
-          <li>LinkedIn for Beginners: Profile, Bio, Internships</li>
-          <li>GitHub: Projects & Open-source</li>
-          <li>LeetCode: Practice, Ranking, Resume impact</li>
+          <li>LinkedIn for Beginners</li><li>GitHub: Projects</li><li>LeetCode: Practice</li>
         </ul>
       </details>
-      <div class="mt-6">
-        <button class="finished-btn block w-full text-center px-4 py-2 rounded-full transition">Finished</button>
-      </div>
+      <div class="mt-6"><button class="finished-btn block w-full px-4 py-2 rounded-full">Finished</button></div>
     </div>
-
   </div>
 
-  <!-- Course Outcomes Section -->
+  <!-- Outcomes -->
   <div class="mt-10 px-4 md:px-12">
     <h2 class="text-xl font-semibold text-center text-blue-300 mb-4">Course Outcomes</h2>
     <div class="bg-gray-900 p-4 rounded-xl text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
       <p>✅ Build full working websites with backend integration</p>
-      <p>✅ Design a professional resume & portfolio to impress recruiters</p>
-      <p>✅ Master LinkedIn, GitHub, and LeetCode for professional presence</p>
-      <p>✅ Apply classroom learning in live projects and real-world tools</p>
-      <p>✅ Gain confidence for internships and tech job interviews</p>
+      <p>✅ Design a professional resume & portfolio</p>
+      <p>✅ Master LinkedIn, GitHub, and LeetCode</p>
+      <p>✅ Apply skills in live projects</p>
+      <p>✅ Gain confidence for internships and jobs</p>
     </div>
   </div>
 </section>
 
-<!-- WhatsApp Button -->
+<!-- WhatsApp -->
 <a href="https://chat.whatsapp.com/LTlyAp76kmV94rkMgtyCNp" target="_blank" class="fixed bottom-5 right-5 bg-green-600 text-white px-5 py-3 rounded-full font-bold shadow-lg z-50">Join WhatsApp Group</a>
 
 <script>
-// Toggle details
-function toggleDesc(id) { document.getElementById(id).classList.toggle('hidden-section'); }
-
-// Show sections
+// Section switch
 function showSection(id) {
   document.getElementById('talentfest-section').classList.add('hidden');
   document.getElementById('courses-section').classList.add('hidden');
   document.getElementById(id).classList.remove('hidden');
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-
-// Mobile menu toggle
+// Mobile menu
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 function toggleMobileMenu() { mobileMenu.classList.add('hidden'); }
+// Confetti
+window.onload = () => { confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } }); };
 </script>
 </body>
 </html>
-
-
