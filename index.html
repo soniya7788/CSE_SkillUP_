@@ -43,21 +43,21 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
 .winner-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
 .winner-item { background:#111827; border-radius:0.8rem; padding:1rem; }
 .winner-item h3 { font-size:1.2rem; color:#60a5fa; font-weight:600; }
-.winner-img { width:100%; height:220px; object-fit:cover; border-radius:0.8rem; margin-bottom:0.5rem; }
+.winner-img { width:100%; height:auto; max-height:300px; object-fit:contain; border-radius:0.8rem; margin-bottom:0.5rem; }
 
 /* Course images */
-.course-card img { height:200px; object-fit:cover; }
+.course-card img { width:100%; height:auto; max-height:220px; object-fit:contain; border-radius:0.5rem; }
 
 /* Responsive adjustments */
 @media(min-width:768px) {
   .winner-grid { grid-template-columns: repeat(3, 1fr); }
-  .winner-img { height:300px; }
-  .course-card img { height:192px; }
+  .winner-img { max-height:300px; }
+  .course-card img { max-height:192px; }
 }
 
 @media(max-width:500px) {
-  .winner-img { height:150px; }
-  .course-card img { height:140px; }
+  .winner-img { max-height:200px; }
+  .course-card img { max-height:150px; }
 }
 </style>
 </head>
@@ -147,7 +147,7 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
   <h2 class="text-2xl font-bold text-blue-400 mb-6 text-center">📘 Past Courses</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://www.webfries.com/wp-content/uploads/2020/06/static-vs-dynamic-website.jpg" class="rounded-lg w-full mb-4">
+      <img src="https://www.webfries.com/wp-content/uploads/2020/06/static-vs-dynamic-website.jpg" class="mb-4">
       <h2 class="text-lg font-semibold mb-1">From Static to Dynamic</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
       <details><summary>Syllabus</summary>
@@ -158,7 +158,7 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
       <div class="mt-6"><button class="finished-btn block w-full px-4 py-2 rounded-full">Finished</button></div>
     </div>
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://staticlearn.shine.com/l/m/images/blog/mobile/cv_template.webp" class="rounded-lg w-full mb-4">
+      <img src="https://staticlearn.shine.com/l/m/images/blog/mobile/cv_template.webp" class="mb-4">
       <h2 class="text-lg font-semibold mb-1">Resume & Portfolio Building</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
       <details><summary>Syllabus</summary>
@@ -169,7 +169,7 @@ details { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; }
       <div class="mt-6"><button class="finished-btn block w-full px-4 py-2 rounded-full">Finished</button></div>
     </div>
     <div class="bg-gray-800 p-4 rounded-xl shadow-lg course-card finished">
-      <img src="https://it.uic.edu/wp-content/uploads/sites/360/2021/01/LinkedIn-news.jpg" class="rounded-lg w-full mb-4">
+      <img src="https://it.uic.edu/wp-content/uploads/sites/360/2021/01/LinkedIn-news.jpg" class="mb-4">
       <h2 class="text-lg font-semibold mb-1">Build Your Digital Social Life</h2>
       <p class="text-sm text-gray-400 mb-2">Instructor: Team CSE</p>
       <details><summary>Syllabus</summary>
